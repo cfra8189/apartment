@@ -1,0 +1,5 @@
+/* Reserve space at the bottom so fixed footer doesn't cover content */
+.apartment-container {
+	padding-bottom: 72px; /* adjust if navbar height changes */
+}
+

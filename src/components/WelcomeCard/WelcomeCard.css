@@ -1,0 +1,25 @@
+.card-style {
+    /* keep a small horizontal gutter on narrow viewports so the card appears centered */
+   width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: rgb(78, 78, 78);
+    color: rgb(180, 180, 180);
+}
+
+.card-button {
+    width: 10em;
+}
+
+@media (max-width: 360px) {
+    .card-style {
+        padding: 1rem;
+        width: 100%;
+    }
+}
