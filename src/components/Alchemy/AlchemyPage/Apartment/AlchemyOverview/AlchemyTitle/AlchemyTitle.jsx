@@ -2,7 +2,7 @@ import './AlchemyTitle.css';
 
 function AlchemyTitle() { 
     return (
-        <h1>Alchemy Title Component</h1>
+        <h1>Ne0</h1>
     );
 }
 

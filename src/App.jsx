@@ -9,6 +9,7 @@ import Apartment from './components/Alchemy/AlchemyPage/Apartment/Apartment.jsx'
 import FloorPlan from './components/Alchemy/AlchemyPage/Apartment/FloorPlan/FloorPlan.jsx'
 import Amenities from './components/Alchemy/AlchemyPage/Apartment/Amenities/Amenities.jsx'
 import Integrated from './components/Alchemy/AlchemyPage/Apartment/Integrated/Integrated.jsx'
+import Overview from './components/Alchemy/AlchemyPage/Apartment/AlchemyOverview/Overview.jsx'
 import HomePage from './components/HomePage/HomePage.jsx'
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/Contact.jsx'
@@ -28,7 +29,7 @@ function App() {
           <Route path="/alchemy" element={<Alchemy />}>
             <Route index element={<AlchemyIndex />} />
             <Route path="apartment" element={<Apartment />}>
-              <Route index element={<div style={{padding:16}}>Overview content</div>} />
+              <Route index element={<Overview />} />
               <Route path="floorplan" element={<FloorPlan />} />
               <Route path="amenities" element={<Amenities />} />
               <Route path="integrated" element={<Integrated />} />

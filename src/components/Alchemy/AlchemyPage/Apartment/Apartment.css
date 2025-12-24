@@ -1,5 +1,23 @@
-/* Reserve space at the bottom so fixed footer doesn't cover content */
+/* Allow hero to extend beneath the fixed apartment navbar so the navbar overlays the hero */
 .apartment-container {
-	padding-bottom: 72px; /* adjust if navbar height changes */
+	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	margin-top: calc(-1 * var(--header-height));
+	padding-top: 0;
+}
+
+/* For pages inside the apartment layout, remove the global top padding applied to <main> so
+	 the hero can sit under the fixed header (header will overlay). */
+.apartment-children {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+}
+
+.apartment-children main {
+	padding-top: 0 !important;
 }
 

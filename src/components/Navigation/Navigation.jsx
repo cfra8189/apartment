@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Navigation.css'
 import { useState, useRef, useEffect } from 'react'
+import logo from '../../assets/ltl-logo.PNG'
 
 function Navigation() {
     const [open, setOpen] = useState(false)
@@ -29,6 +30,7 @@ function Navigation() {
     return (
         <>{/* Navigation Bar */}
             <header className="headerNav">
+                
                 <nav ref={navRef} className="nav-container max-w-[1100px] mx-auto">
                     <button
                         className="nav-toggle"
@@ -46,6 +48,11 @@ function Navigation() {
                     <ul id="homeNav" className={`nav-links ${open ? 'open' : ''} flex flex-row items-center justify-center space-x-4 m-0 list-none`} onClick={() => setOpen(false)}>
                         <li><Link to="/" className='px-3 py-2'>HOME</Link></li>
                         <li><Link to="/alchemy" className='px-3 py-2'>ALCHEMY</Link></li> {/* Apartment Concept */}
+                        <li className="nav-logo-item">
+                            <Link to="/" className="nav-logo-link">
+                                <img src={logo} alt="Logo" className="logo-image" />
+                            </Link>
+                        </li>
                         <li><Link to="/about" className='px-3 py-2'>ABOUT</Link></li>
                         <li><Link to="/contact" className='px-3 py-2'>CONTACT</Link></li>
                     </ul>

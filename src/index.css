@@ -19,6 +19,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --header-height: 76px; /* used by layouts to offset fixed header */
 }
 
 /* ensure no default page margins create a white gap at the top */
@@ -63,7 +64,12 @@ button:focus-visible {
 
 main, .page-content {
   width: 100%;
-  padding-top: 56px; /* match header height so content sits below header */
+  padding-top: 0;
+  padding-top: var(--header-height);
+
 }
 
-
+/* If another part of the app uses a different root container, ensure it also respects header space */
+.content-below-header {
+  padding-top: 72px;
+}

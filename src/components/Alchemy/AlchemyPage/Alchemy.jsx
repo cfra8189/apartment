@@ -3,8 +3,7 @@ import './Alchemy.css'
 
 export default function Alchemy() {
     return (
-        <div>
-            <h1>Alchemy</h1>
+        <div style={{ minHeight: 'calc(100vh - var(--header-height))', display: 'flex', flexDirection: 'column' }}>
             <Outlet />
         </div>
     )

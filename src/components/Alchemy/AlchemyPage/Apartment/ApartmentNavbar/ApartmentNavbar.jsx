@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link to="amenities">Amenities</Link>
         </li>
         <li className="nav-item">
-          <Link to="integrated">Service</Link>
+          <Link to="integrated">IN.toGreat('ed')</Link>
         </li>
       </ul>
     </nav>

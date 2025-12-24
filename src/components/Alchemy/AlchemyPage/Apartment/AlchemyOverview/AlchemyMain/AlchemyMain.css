@@ -1,0 +1,23 @@
+/* Hero that fills the viewport and sits beneath fixed header/navbar */
+.hero-full {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+/* Make sure any inner wrappers don't add extra vertical spacing */
+.hero-full > .max-w-7xl,
+.hero-full .mx-auto {
+	margin: 0 auto;
+}
+
+/* Remove side spacing so hero background is full-bleed; keep inner content centered */
+.hero-inner {
+	width: 100%;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
