@@ -13,6 +13,7 @@ import Overview from './components/Alchemy/AlchemyPage/Apartment/AlchemyOverview
 import HomePage from './components/HomePage/HomePage.jsx'
 import About from './components/About/About.jsx'
 import Contact from './components/Contact/Contact.jsx'
+import ThankYou from './components/Contact/ThankYou.jsx'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
 
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/thank-you" element={<ThankYou />} />
         </Routes>
       </main>
     </>
