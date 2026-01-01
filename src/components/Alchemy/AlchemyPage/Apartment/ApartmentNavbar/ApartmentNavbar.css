@@ -1,25 +1,87 @@
 .navbar-container {
     width: 100%;
-    background-color: #2c3e50;
+    background-color: #000000;
     padding: 12px 0;
-    box-shadow: 0 -6px 18px rgba(0,0,0,0.35);
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1200;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.8);
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .nav-list {
     display: flex;
     flex-direction: row;
-    gap: 7rem;
+    gap: 3.5rem;
     list-style: none;
     justify-content: space-around;
+    padding: 0 2rem;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.nav-item a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav-item a:hover {
+    background-color: #999999;
+    color: #000000;
+}
+
+/* Medium screens: tighten spacing and padding */
+@media (max-width: 900px) {
+    .nav-list {
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+}
+
+/* Small screens: allow wrap and balanced spacing */
+@media (max-width: 640px) {
+    .navbar-container {
+        padding: 10px 0;
+    }
+
+    .nav-list {
+        gap: 1rem;
+        padding: 0 1rem;
+        justify-content: center;
+    }
+
+    .nav-item a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra small: two-column wrap for readability */
+@media (max-width: 480px) {
+    .nav-list {
+        row-gap: 0.5rem;
+    }
+
+    .nav-item {
+        flex: 1 1 45%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-item a {
+        width: 100%;
+        text-align: center;
+    }
 }

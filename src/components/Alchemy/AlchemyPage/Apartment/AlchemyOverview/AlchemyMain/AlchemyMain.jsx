@@ -1,66 +1,110 @@
 import './AlchemyMain.css'
+import { Link } from 'react-router-dom'
+import { useTheme } from '../../../../../../contexts/ThemeContext.jsx'
+import ltl2026Video from '../../../../../../assets/LTL_2026.MP4'
 
 export default function AlchemyMain() {
+  const { colors, theme } = useTheme()
+  
   return (
-    <div className="bg-gray-900 h-screen flex flex-col w-full overflow-hidden">
-      <div className="relative isolate flex-grow flex flex-col justify-center px-0 lg:px-0">
-        {/* Top decorative blur */}
-        <div aria-hidden="true" className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[580px] -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[1155px]"
-          />
-        </div>
+    <div style={{backgroundColor: colors.background, position: 'relative'}} className="min-h-screen flex flex-col w-full overflow-auto">
+      {/* Background video - blurred and darkened */}
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          zIndex: 0,
+          filter: theme === 'dark' ? 'blur(20px) brightness(0.3)' : 'blur(20px) brightness(1.05)',
+          opacity: theme === 'dark' ? 1 : 0.45,
+          transform: 'scale(1.1)'
+        }}
+      >
+        <source src={ltl2026Video} type="video/mp4" />
+      </video>
+      <div
+        className="fixed inset-0"
+        style={{
+          backgroundColor: theme === 'dark' ? 'rgba(0, 0, 0, 0.55)' : 'rgba(229, 229, 229, 0.55)',
+          zIndex: 0
+        }}
+      />
+      
+      <div className="relative flex-grow flex flex-col justify-center px-6 lg:px-8 pb-24 pt-24" style={{zIndex: 1}}>
+        <div className="mx-auto w-full max-w-7xl">
+          
 
-        {/* Hero full-width background with centered content (fills viewport) */}
-        <section
-          className="w-full hero-full flex-grow flex flex-col justify-center pt-24"
-        >
-          <div className="hero-inner mx-auto w-full text-center">
-            <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
-                Announcing our next round of funding.{' '}
-                <a href="#" className="font-semibold text-indigo-400">
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  Read more <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </div>
-
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl 2xl:text-9xl">
-              Data to enrich your online business
-            </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8 2xl:text-2xl">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat.
-            </p>
-
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
-                Get started
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-white">
-                Learn more <span aria-hidden="true">→</span>
-              </a>
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left side - Text content */}
+            <div className="space-y-8 text-center lg:text-left">
+              <h1 className="text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl" style={{color: colors.text, fontFamily: 'LEDLIGHT', fontSize: '120px'}}>
+                box
+              </h1>
+             {/* Badge */}
+          <div className="mb-8 flex justify-center lg:justify-start">
+            <div className="relative rounded-full px-3 py-1 text-sm/6" style={{color: colors.textSecondary, borderWidth: '1px', borderStyle: 'solid', borderColor: colors.textSecondary}}>
+              CONCEPT = CONCRETE
             </div>
           </div>
-        </section>
+              
+              <div className="space-y-6">
+                             
+                <p className="text-base sm:text-lg leading-relaxed" style={{color: colors.textSecondary}}>
+                  No Outside Tech | Everything is em-BED-ed.
+                </p>
+                
+              </div>
 
-        {/* Bottom decorative blur */}
-        <div aria-hidden="true" className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-          <div
-            style={{
-              clipPath:
-                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[580px] -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[1155px]"
-          />
+              <div className="flex flex-col items-center lg:items-start gap-4">
+                <Link
+                  to="/contact"
+                  className="rounded-md px-6 py-3 text-sm font-semibold transition-colors"
+                  style={{backgroundColor: colors.text, color: colors.background, border: `1px solid ${colors.text}`}}
+                  onMouseEnter={(e) => { e.target.style.backgroundColor = colors.textSecondary; e.target.style.color = colors.text; }}
+                  onMouseLeave={(e) => { e.target.style.backgroundColor = colors.text; e.target.style.color = colors.background; }}
+                >
+                  Schedule an Interview
+                </Link>
+                <p className="text-xs italic" style={{color: colors.textSecondary}}>
+                  Acceptance is subject to Associate review.
+                </p>
+              </div>
+              
+            </div>
+
+            {/* Right side - Video feature box */}
+            <div className="flex justify-center lg:justify-end">
+              <div style={{
+                width: '100%',
+                maxWidth: '650px',
+                aspectRatio: '1',
+                overflow: 'hidden',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.8)'
+              }}>
+                <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                >
+                  <source src="/src/assets/ne0-1.MP4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
