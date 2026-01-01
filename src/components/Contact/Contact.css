@@ -1,0 +1,30 @@
+.contact-page {
+	width: 100%;
+	min-height: 100vh;
+	background: #000;
+	color: #fff;
+}
+
+.contact-page h2 {
+	font-size: clamp(2.25rem, 3vw + 1rem, 3.5rem);
+	letter-spacing: 0.03em;
+}
+
+.contact-page label,
+.contact-page input,
+.contact-page textarea,
+.contact-page select,
+.contact-page button {
+	font-size: clamp(1rem, 0.45vw + 1rem, 1.35rem);
+}
+
+.contact-page input,
+.contact-page textarea,
+.contact-page select {
+	padding: 0.85rem 1rem;
+}
+
+.contact-page button {
+	padding: 0.95rem 1.1rem;
+	font-weight: 700;
+}

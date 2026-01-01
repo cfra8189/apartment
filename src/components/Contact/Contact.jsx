@@ -1,3 +1,4 @@
+import './Contact.css'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -14,13 +15,13 @@ export default function Contact() {
     }, [navigate])
 
     return (
-        <div className="isolate px-6 py-24 sm:py-32 lg:px-8" style={{ backgroundColor: colors.background, marginTop: 'calc(-1 * var(--header-height))', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="contact-page isolate px-6 py-10 sm:py-14 lg:px-8" style={{ backgroundColor: colors.background, marginTop: 'calc(-1 * var(--header-height))', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%', paddingTop: 'clamp(80px, 10vh, 120px)' }}>
             <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl" style={{color: colors.text}}>Contact</h2>
                 
             </div>
-            <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <form action="#" method="POST" className="mx-auto mt-6 max-w-xl sm:mt-8" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2">
                     <div>
                         <label htmlFor="first-name" className="block text-sm/6 font-semibold" style={{color: colors.text}}>
                             First name
@@ -111,7 +112,7 @@ export default function Contact() {
                             <textarea
                                 id="message"
                                 name="message"
-                                rows={4}
+                                rows={3}
                                 className="block w-full rounded-md px-3.5 py-2 text-base"
                                 style={{backgroundColor: colors.background, color: colors.text, border: `1px solid ${colors.textSecondary}`}}
                                 defaultValue={''}
@@ -140,7 +141,7 @@ export default function Contact() {
                         </label>
                     </div>
                 </div>
-                <div className="mt-10">
+                <div className="mt-8 mb-2">
                     <button
                         type="submit"
                         className="block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold transition-colors"

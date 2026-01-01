@@ -1,0 +1,15 @@
+.about-page {
+	width: 100%;
+	min-height: 100vh;
+	background: #000;
+	color: #fff;
+}
+
+.about-page p {
+	font-size: clamp(1.05rem, 0.5vw + 1rem, 1.5rem);
+	line-height: 1.7;
+}
+
+.about-page h2 {
+	letter-spacing: 0.03em;
+}
