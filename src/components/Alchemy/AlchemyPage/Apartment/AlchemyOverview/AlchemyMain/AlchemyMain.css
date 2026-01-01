@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'LEDLIGHT';
+  src: url('/font/LEDLIGHT.otf') format('opentype');
+}
+
 /* Hero that fills the viewport and sits beneath fixed header/navbar */
 .hero-full {
 	display: flex;
