@@ -1,8 +1,7 @@
 /* Navigation styles */
 .headerNav {
   display: block;
-  /* semi-transparent background so content behind slightly shows through */
-  background: rgba(31,31,31,0.95);
+  /* background moved to inline style for theme support */
   padding: 0; /* we control spacing with inner container */
   margin: 0;
   position: fixed;
@@ -11,9 +10,7 @@
   right: 0;
   width: 100%;
   z-index: 1100;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+  /* box-shadow moved to inline style for theme support */
 }
 
 .nav-container {
@@ -61,8 +58,8 @@
 
 #homeNav {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2.25rem;
   align-items: center;
   padding: 0;
   list-style: none;
@@ -71,14 +68,14 @@
 ul#homeNav li a {
   /* display: inline-block; */
   
-  color: rgba(255, 255, 255, 0.87);
+  color: #FFFFFF;
   text-decoration: none;
   font-weight: 500;
 }
 
 ul#homeNav li a:hover {
-  background-color: #5f5f5f;
-  color: #fff;
+  background-color: #999999;
+  color: #000000;
   border-radius: 4px;
 }
 
@@ -103,6 +100,11 @@ ul#homeNav li a:hover {
 
 /* responsive: collapse links into a vertical menu on small screens */
 @media (max-width: 640px) {
+  /* hide logo inside the mobile dropdown */
+  .nav-logo-item {
+    display: none;
+  }
+
   .nav-toggle { 
     display: inline-flex; ;
 
@@ -118,17 +120,17 @@ ul#homeNav li a:hover {
     transform: translateX(-50%);
     background: linear-gradient(180deg, #222 0%, #1b1b1b 100%);
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     padding: 8px;
     align-items: stretch;
     z-index: 1000;
     border-radius: 10px;
     min-width: 200px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 24px rgb(0, 0, 0);
     border: 1px solid rgba(255,255,255,0.04);
   }
   .nav-links li { width: 100%; text-align: center; }
-  .nav-links li a { display: block; width: 100%; padding: 0.75rem 0; box-sizing: border-box; text-align: center; }
+  .nav-links li a { display: block; width: 100%; padding: 0.6rem 0; box-sizing: border-box; text-align: center; }
 
   /* ensure spacing utility classes don't shift items horizontally on mobile */
   .nav-links > li { margin-left: 0 !important; margin-right: 0 !important; }
