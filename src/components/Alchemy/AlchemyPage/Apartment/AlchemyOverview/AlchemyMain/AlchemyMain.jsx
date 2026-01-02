@@ -2,6 +2,7 @@ import './AlchemyMain.css'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../../../../../../contexts/ThemeContext.jsx'
 import ltl2026Video from '../../../../../../assets/LTL_2026.MP4'
+import ne01Video from '../../../../../../assets/ne0-1.MP4'
 
 export default function AlchemyMain() {
   const { colors, theme } = useTheme()
@@ -89,7 +90,7 @@ export default function AlchemyMain() {
                   muted 
                   playsInline
                 >
-                  <source src="/src/assets/ne0-1.MP4" type="video/mp4" />
+                    <source src={ne01Video} type="video/mp4" />
                 </video>
               </div>
             </div>

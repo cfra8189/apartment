@@ -8,6 +8,7 @@ function HomePage () {
     return (
         <div className="home-hero" style={{ backgroundColor: colors.background, color: colors.text }}>
             <video 
+                key="home-bg-video"
                 className="home-hero__video"
                 autoPlay 
                 loop 
