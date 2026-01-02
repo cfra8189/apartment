@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --nojekyll"
+    "deploy": "gh-pages -d dist --nojekyll -f"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
