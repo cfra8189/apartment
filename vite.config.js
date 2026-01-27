@@ -11,7 +11,8 @@ export default defineConfig({
     tailwindcss()
   ],
   server: {
-    port: 5173, // Default dev port in 2025
-    open: true  // Automatically opens browser
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: true
   }
 })
