@@ -6,8 +6,6 @@
 
 ![Screenshot of portfolio](public/screenshot.png)
 
-Replace the file at `public/screenshot.png` with a project screenshot to display here.
-
 ## About This Project
 
 This repository contains my personal portfolio site built with React and Vite. It showcases work samples, a modular component structure, a theme context for light/dark modes, and nested routing for multi-level pages (for example, the Alchemy apartment pages). The site is designed to be responsive and accessible across desktop and mobile devices.
