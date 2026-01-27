@@ -1,5 +1,5 @@
 import './HomePage.css'
-import bgVideo from '../../assets/bg5.mp4'
+import bgImage from '../../assets/Untitled.GIF'
 import { useTheme } from '../../contexts/ThemeContext.jsx'
 
 function HomePage () {
@@ -7,16 +7,12 @@ function HomePage () {
     
     return (
         <div className="home-hero" style={{ backgroundColor: colors.background, color: colors.text }}>
-            <video 
-                key="home-bg-video"
+            <img
+                src={bgImage}
+                alt="Background animation"
                 className="home-hero__video"
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-            >
-                <source src={bgVideo} type="video/mp4" />
-            </video>
+                aria-hidden="true"
+            />
             <h1 className="home-hero__title" style={{ color: colors.text }}>
                 My Louisiana Sky
             </h1>
