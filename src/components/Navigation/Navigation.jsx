@@ -20,11 +20,11 @@ function Navigation() {
         function handleKey(e) {
             if (e.key === 'Escape' && open) setOpen(false)
         }
-
-        document.addEventListener('mousedown', handleDocClick)
+        // Use pointerdown for better cross-device (touch & mouse) support
+        document.addEventListener('pointerdown', handleDocClick)
         document.addEventListener('keydown', handleKey)
         return () => {
-            document.removeEventListener('mousedown', handleDocClick)
+            document.removeEventListener('pointerdown', handleDocClick)
             document.removeEventListener('keydown', handleKey)
         }
     }, [open])
