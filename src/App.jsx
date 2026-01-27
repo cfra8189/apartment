@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import TestComp from './components/TestComp/TestComp.jsx'
+import floorPlanImage from './assets/ne0_floorplan.png'
 import Navigation from './components/Navigation/Navigation.jsx'
 import Alchemy from './components/Alchemy/AlchemyPage/Alchemy.jsx'
 import AlchemyIndex from './components/Alchemy/AlchemyPage/AlchemyIndex.jsx'
@@ -16,7 +17,10 @@ import Contact from './components/Contact/Contact.jsx'
 import ThankYou from './components/Contact/ThankYou.jsx'
 
 function App() {
-
+  useEffect(() => {
+    const img = new Image()
+    img.src = floorPlanImage
+  }, [])
 
   return (
 
