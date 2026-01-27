@@ -163,7 +163,7 @@ If deploying to GitHub Pages, set the `base` option in `vite.config.js` to the r
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/cfra8189/apartment.git
 ```
 
 2. Change into the project directory and install dependencies:
