@@ -9,63 +9,18 @@ export default function AlchemyMain() {
   const { colors, theme } = useTheme()
   const [clickCount, setClickCount] = useState(0)
   const [isSecretTriggered, setIsSecretTriggered] = useState(false)
-  const [showApp, setShowApp] = useState(false)
-
   const handleBoxClick = () => {
     const newCount = clickCount + 1
     setClickCount(newCount)
     if (newCount === 4) {
       setIsSecretTriggered(true)
-      // Transition to "App" after animation
+      // Transition to external App after animation
       setTimeout(() => {
-        setShowApp(true)
+        window.location.href = 'https://frontend-capstone-8qcs3s8a2-clarence-franklins-projects.vercel.app'
       }, 3000)
     }
   }
 
-  if (showApp) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white font-mono p-10">
-        <div className="max-w-4xl w-full space-y-8 animate-in fade-in zoom-in duration-1000">
-          <header className="border-b border-zinc-800 pb-4">
-            <h2 className="text-2xl tracking-widest text-zinc-500 uppercase">System :: App</h2>
-          </header>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <div className="h-48 bg-zinc-900/50 border border-zinc-800 rounded-sm flex items-center justify-center">
-                <span className="text-zinc-700">Module_01.exe</span>
-              </div>
-              <p className="text-zinc-400 leading-relaxed">
-                Welcome to the core interface. Everything is embedded. Access to the grid is now active.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
-                <span className="text-zinc-600 group-hover:text-white">// VIEW_LOGS</span>
-              </div>
-              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
-                <span className="text-zinc-600 group-hover:text-white">// SYNC_FREQUENCY</span>
-              </div>
-              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
-                <span className="text-zinc-600 group-hover:text-white">// DISCONNECT</span>
-              </div>
-            </div>
-          </div>
-          <button 
-            onClick={() => {
-              setClickCount(0)
-              setIsSecretTriggered(false)
-              setShowApp(false)
-            }}
-            className="text-xs text-zinc-600 hover:text-white transition-colors"
-          >
-            ← RETURN_TO_SURFACE
-          </button>
-        </div>
-      </div>
-    )
-  }
-  
   return (
     <div style={{backgroundColor: colors.background, position: 'relative'}} className={`min-h-screen flex flex-col w-full overflow-auto alchemy-full ${isSecretTriggered ? 'trigger-entrance' : ''}`}>
       {/* Background video - blurred and darkened */}
