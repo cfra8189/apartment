@@ -1,14 +1,73 @@
 import './AlchemyMain.css'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { useTheme } from '../../../../../../contexts/ThemeContext.jsx'
 import ltl2026Video from '../../../../../../assets/LTL_2026.MP4'
 import ne01Video from '../../../../../../assets/ne0-1.MP4'
 
 export default function AlchemyMain() {
   const { colors, theme } = useTheme()
+  const [clickCount, setClickCount] = useState(0)
+  const [isSecretTriggered, setIsSecretTriggered] = useState(false)
+  const [showApp, setShowApp] = useState(false)
+
+  const handleBoxClick = () => {
+    const newCount = clickCount + 1
+    setClickCount(newCount)
+    if (newCount === 4) {
+      setIsSecretTriggered(true)
+      // Transition to "App" after animation
+      setTimeout(() => {
+        setShowApp(true)
+      }, 3000)
+    }
+  }
+
+  if (showApp) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white font-mono p-10">
+        <div className="max-w-4xl w-full space-y-8 animate-in fade-in zoom-in duration-1000">
+          <header className="border-b border-zinc-800 pb-4">
+            <h2 className="text-2xl tracking-widest text-zinc-500 uppercase">System :: App</h2>
+          </header>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <div className="h-48 bg-zinc-900/50 border border-zinc-800 rounded-sm flex items-center justify-center">
+                <span className="text-zinc-700">Module_01.exe</span>
+              </div>
+              <p className="text-zinc-400 leading-relaxed">
+                Welcome to the core interface. Everything is embedded. Access to the grid is now active.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
+                <span className="text-zinc-600 group-hover:text-white">// VIEW_LOGS</span>
+              </div>
+              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
+                <span className="text-zinc-600 group-hover:text-white">// SYNC_FREQUENCY</span>
+              </div>
+              <div className="p-4 border border-zinc-800 hover:border-zinc-400 transition-colors cursor-pointer group">
+                <span className="text-zinc-600 group-hover:text-white">// DISCONNECT</span>
+              </div>
+            </div>
+          </div>
+          <button 
+            onClick={() => {
+              setClickCount(0)
+              setIsSecretTriggered(false)
+              setShowApp(false)
+            }}
+            className="text-xs text-zinc-600 hover:text-white transition-colors"
+          >
+            ← RETURN_TO_SURFACE
+          </button>
+        </div>
+      </div>
+    )
+  }
   
   return (
-    <div style={{backgroundColor: colors.background, position: 'relative'}} className="min-h-screen flex flex-col w-full overflow-auto alchemy-full">
+    <div style={{backgroundColor: colors.background, position: 'relative'}} className={`min-h-screen flex flex-col w-full overflow-auto alchemy-full ${isSecretTriggered ? 'trigger-entrance' : ''}`}>
       {/* Background video - blurred and darkened */}
       <video 
         autoPlay 
@@ -23,9 +82,10 @@ export default function AlchemyMain() {
           height: '100vh',
           objectFit: 'cover',
           zIndex: 0,
-          filter: theme === 'dark' ? 'blur(20px) brightness(0.3)' : 'blur(20px) brightness(1.05)',
+          filter: isSecretTriggered ? 'brightness(0)' : (theme === 'dark' ? 'blur(20px) brightness(0.3)' : 'blur(20px) brightness(1.05)'),
           opacity: theme === 'dark' ? 1 : 0.45,
-          transform: 'scale(1.1)'
+          transform: 'scale(1.1)',
+          transition: 'filter 2s ease-in-out'
         }}
       >
         <source src={ltl2026Video} type="video/mp4" />
@@ -33,8 +93,9 @@ export default function AlchemyMain() {
       <div
         className="fixed inset-0"
         style={{
-          backgroundColor: theme === 'dark' ? 'rgba(0, 0, 0, 0.55)' : 'rgba(229, 229, 229, 0.55)',
-          zIndex: 0
+          backgroundColor: isSecretTriggered ? 'black' : (theme === 'dark' ? 'rgba(0, 0, 0, 0.55)' : 'rgba(229, 229, 229, 0.55)'),
+          zIndex: 0,
+          transition: 'background-color 2s ease-in-out'
         }}
       />
       
@@ -45,8 +106,12 @@ export default function AlchemyMain() {
           {/* Bento Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center content-grid">
             {/* Left side - Text content */}
-            <div className="space-y-8 text-center lg:text-left content-pane">
-              <h1 className="text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl" style={{color: colors.text, fontFamily: 'LEDLIGHT', fontSize: 'clamp(110px, 11vw, 240px)'}}>
+            <div className={`space-y-8 text-center lg:text-left content-pane ${isSecretTriggered ? 'fade-out-secret' : ''}`}>
+              <h1 
+                onClick={handleBoxClick}
+                className="text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl cursor-pointer select-none box-logo-trigger" 
+                style={{color: colors.text, fontFamily: 'LEDLIGHT', fontSize: 'clamp(110px, 11vw, 240px)'}}
+              >
                 box
               </h1>
              {/* Badge */}
@@ -82,7 +147,7 @@ export default function AlchemyMain() {
             </div>
 
             {/* Right side - Video feature box */}
-            <div className="flex justify-center lg:justify-end">
+            <div className={`flex justify-center lg:justify-end ${isSecretTriggered ? 'secret-entrance-anim' : ''}`}>
               <div className="feature-video-wrap">
                 <video 
                   autoPlay 

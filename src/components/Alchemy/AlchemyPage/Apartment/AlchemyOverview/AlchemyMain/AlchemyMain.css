@@ -5,78 +5,108 @@
 
 /* Hero that fills the viewport and sits beneath fixed header/navbar */
 .hero-full {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 0;
 }
 
 /* Make sure any inner wrappers don't add extra vertical spacing */
 .hero-full > .max-w-7xl,
 .hero-full .mx-auto {
-	margin: 0 auto;
+        margin: 0 auto;
 }
 
 /* Remove side spacing so hero background is full-bleed; keep inner content centered */
 .hero-inner {
-	width: 100%;
-	max-width: 100%;
-	padding-left: 0;
-	padding-right: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
 }
 
 .content-pane {
   position: relative;
-	z-index: 3;
-	background: transparent;
-	padding: 0;
-	border-radius: 0;
-	box-shadow: none;
+        z-index: 3;
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
 }
 
 .content-grid {
-	column-gap: clamp(3rem, 4vw, 6rem);
-	row-gap: clamp(1.5rem, 3vw, 3rem);
-	align-items: center;
+        column-gap: clamp(3rem, 4vw, 6rem);
+        row-gap: clamp(1.5rem, 3vw, 3rem);
+        align-items: center;
 }
 
 .alchemy-shell {
-	max-width: min(98vw, 2600px);
+        max-width: min(98vw, 2600px);
 }
 
 .alchemy-full {
-	width: 100%;
-	margin: 0 auto;
-	padding-left: clamp(16px, 3vw, 48px);
-	padding-right: clamp(16px, 3vw, 48px);
-	box-sizing: border-box;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: clamp(16px, 3vw, 48px);
+        padding-right: clamp(16px, 3vw, 48px);
+        box-sizing: border-box;
 }
 
 /* Feature video wrapper (square, responsive) */
 .feature-video-wrap {
-	position: relative;
-	width: clamp(1400px, 78vw, 2800px);
-	aspect-ratio: 1 / 1; /* keep square as requested */
-	overflow: hidden;
-	border-radius: 12px;
-	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
-	z-index: 1;
-	margin-left: 0;
-	margin-right: 0;
+        position: relative;
+        width: clamp(1400px, 78vw, 2800px);
+        aspect-ratio: 1 / 1; /* keep square as requested */
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+        z-index: 1;
+        margin-left: 0;
+        margin-right: 0;
 }
 
 @media (min-width: 1600px) {
-	.feature-video-wrap {
-		width: clamp(1800px, 82vw, 3400px);
-		margin-left: 0;
-	}
+        .feature-video-wrap {
+                width: clamp(1800px, 82vw, 3400px);
+                margin-left: 0;
+        }
 }
 
 .feature-video-wrap video {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+}
+
+.box-logo-trigger {
+  transition: transform 0.2s ease;
+}
+
+.box-logo-trigger:active {
+  transform: scale(0.95);
+}
+
+.fade-out-secret {
+  animation: fadeOut 1.5s forwards ease-in-out;
+}
+
+.secret-entrance-anim {
+  animation: secretZoom 3s forwards cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(20px); }
+}
+
+@keyframes secretZoom {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.9) rotate(-2deg); }
+  100% { transform: scale(5) translate(-20%, -20%); opacity: 0; }
+}
+
+.trigger-entrance {
+  pointer-events: none;
 }
