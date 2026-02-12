@@ -14,9 +14,9 @@ export default function AlchemyMain() {
     setClickCount(newCount)
     if (newCount === 4) {
       setIsSecretTriggered(true)
-      // Transition to external App after animation
+      // Redirect to external app after animation
       setTimeout(() => {
-        window.location.href = 'https://frontend-capstone-8qcs3s8a2-clarence-franklins-projects.vercel.app'
+        window.open('https://frontend-capstone-sable.vercel.app/', '_blank')
       }, 3000)
     }
   }
