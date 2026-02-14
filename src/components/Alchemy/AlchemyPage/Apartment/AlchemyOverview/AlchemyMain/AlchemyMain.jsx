@@ -16,7 +16,7 @@ export default function AlchemyMain() {
       setIsSecretTriggered(true)
       // Redirect to external app after animation
       setTimeout(() => {
-        window.open('https://frontend-capstone-a95jxfut9-clarence-franklins-projects.vercel.app', '_blank')
+        window.open('https://frontend-capstone-chi.vercel.app/', '_blank')
       }, 3000)
     }
   }
